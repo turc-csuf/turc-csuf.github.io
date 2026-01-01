@@ -32,23 +32,26 @@ body {
 
 /* TEAM LOGO */
 .logo-area {
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .logo-area img {
-  height: 120px;
+  height: 110px;
+  width: auto;
+  display: block;
   border: 1px solid white;
   border-radius: 6px;
   padding: 1px;
-  background: white;
+  background-color: white;
 }
 
-/* LOGO WHEN SCROLLED */
+/* Floating logo */
 .logo-area.logo-floating {
   position: fixed;
   top: 12px;
   left: 20px;
   transform: scale(0.5);
+  transform-origin: top left;
   z-index: 1200;
 }
 
@@ -68,6 +71,10 @@ body {
 }
 
 /* NAV */
+nav {
+  padding-bottom: 28px;   /* ✅ EXTRA SPACE BELOW NAV */
+}
+
 nav ul {
   display: flex;
   justify-content: center;
@@ -83,6 +90,10 @@ nav a {
   font-weight: 600;
 }
 
+nav a:hover {
+  color: var(--teal-accent);
+}
+
 /* CONTENT */
 main {
   max-width: 1000px;
@@ -91,7 +102,7 @@ main {
 }
 
 section {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 30px;
@@ -122,54 +133,28 @@ footer {
   opacity: 0.8;
 }
 
-/* ================= SPONSORS ================= */
-
-/* START POSITION (BOTTOM CENTER) */
-.sponsors-floating {
+/* SPONSORS */
+.fixed-sponsor {
   position: fixed;
-  bottom: 48px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 40px;
-  align-items: center;
+  bottom: 24px;
+  width: auto;
   z-index: 1000;
+  transition: transform 0.25s ease-out;
 }
 
-.sponsors-floating img {
-  height: 90px;
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+.fixed-sponsor.ocean {
+  left: 24px;
+  height: 37px;
+  transform-origin: bottom left;
 }
 
-/* SCROLLED → GO TO CORNERS */
-.sponsors-floating.scrolled #oceanbotics {
-  transform: translate(-50vw, 28px) scale(0.5);
+.fixed-sponsor.rje {
+  right: 0px;
+  bottom: 3px;
+  height: 160px;
+  transform-origin: bottom right;
 }
 
-.sponsors-floating.scrolled #rje {
-  transform: translate(50vw, 28px) scale(0.5);
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-  .logo-area img {
-    height: 80px;
-  }
-
-  .logo-area.logo-floating {
-    transform: scale(0.6);
-  }
-
-  .sponsors-floating img {
-    height: 60px;
-  }
-
-  .sponsors-floating.scrolled #oceanbotics {
-    transform: translate(-45vw, 20px) scale(0.6);
-  }
-
-  .sponsors-floating.scrolled #rje {
-    transform: translate(45vw, 20px) scale(0.6);
-  }
+.fixed-sponsor.shrink {
+  transform: scale(0.5);
 }
