@@ -32,7 +32,7 @@ body {
 
 /* TEAM LOGO */
 .logo-area {
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-area img {
@@ -48,7 +48,7 @@ body {
   position: fixed;
   top: 12px;
   left: 20px;
-  transform: scale(0.5); /* EXACT HALF */
+  transform: scale(0.5);
   z-index: 1200;
 }
 
@@ -60,6 +60,11 @@ body {
 .title-area h1 {
   margin: 0;
   color: var(--teal-accent);
+}
+
+.title-area p {
+  margin: 0;
+  opacity: 0.85;
 }
 
 /* NAV */
@@ -138,11 +143,11 @@ footer {
 
 /* SCROLLED → GO TO CORNERS */
 .sponsors-floating.scrolled #oceanbotics {
-  transform: translate(-420px, 28px) scale(0.5);
+  transform: translate(-50vw, 28px) scale(0.5);
 }
 
 .sponsors-floating.scrolled #rje {
-  transform: translate(420px, 28px) scale(0.5);
+  transform: translate(50vw, 28px) scale(0.5);
 }
 
 /* MOBILE */
@@ -161,10 +166,10 @@ footer {
   }
 
   .sponsors-floating.scrolled #oceanbotics {
-    transform: translate(-220px, 20px) scale(0.6);
+    transform: translate(-45vw, 20px) scale(0.6);
   }
 
   .sponsors-floating.scrolled #rje {
-    transform: translate(220px, 20px) scale(0.6);
+    transform: translate(45vw, 20px) scale(0.6);
   }
 }
