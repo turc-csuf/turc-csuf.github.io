@@ -1,160 +1,156 @@
-:root {
-  --navy-main: #0A1E32;
-  --navy-alt: #0A283C;
-  --teal-accent: #AAD2DC;
-  --text-light: #F5F7F8;
-  --border: rgba(255, 255, 255, 0.15);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Titan Underwater Robotics AUV</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
-/* BASE */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, var(--navy-alt), var(--navy-main));
-  color: var(--text-light);
-}
+<body>
 
-/* HEADER */
-.site-header {
-  background: rgba(10, 30, 50, 0.95);
-  border-bottom: 1px solid var(--border);
-}
+<header class="site-header">
+  <div class="top-bar">
 
-/* TOP BAR */
-.top-bar {
-  max-width: 1100px;
-  margin: auto;
-  padding: 15px 20px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-}
+    <!-- TEAM LOGO -->
+    <div class="logo-area" id="teamLogo">
+      <img src="assets/images/team-logo.webp" alt="Team Logo">
+    </div>
 
-/* TEAM LOGO */
-.logo-area {
-  will-change: transform;
-}
+    <!-- TITLE -->
+    <div class="title-area">
+      <h1>Titan Underwater Robotics AUV</h1>
+      <p>California State University, Fullerton</p>
+    </div>
 
-.logo-area img {
-  height: 110px;
-  width: auto;
-  display: block;
-  border: 1px solid white;
-  border-radius: 6px;
-  padding: 1px;
-  background-color: white;
-}
+  </div>
 
-/* Floating logo */
-.logo-area.logo-floating {
-  position: fixed;
-  top: 12px;
-  left: 20px;
-  transform: scale(0.5);
-  transform-origin: top left;
-  z-index: 1200;
-}
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#whatwedo">What We Do</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
 
-/* TITLE */
-.title-area {
-  text-align: center;
-}
+<main id="home">
 
-.title-area h1 {
-  margin: 0;
-  color: var(--teal-accent);
-}
+  <section>
+    <h2>Titan Underwater Robotics AUV</h2>
+    <p>
+      We unite curious minds passionate about underwater robotics.
+      Whether you're experienced or just starting, all are welcome.
+    </p>
+  </section>
 
-.title-area p {
-  margin: 0;
-  opacity: 0.85;
-}
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Our mission is to design, build, and compete with autonomous
+      underwater vehicles while learning real-world engineering.
+    </p>
+  </section>
 
-/* NAV */
-nav {
-  padding-bottom: 28px;   /* ✅ EXTRA SPACE BELOW NAV */
-}
+  <section id="whatwedo">
+    <h2>What We Do</h2>
+    <ul>
+      <li>Building collaborative underwater robotics projects</li>
+      <li>Exploring cutting-edge technologies</li>
+      <li>Sharing knowledge, tools, and experience</li>
+      <li>Competing in AUV competitions</li>
+    </ul>
+  </section>
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <p>📸 Vehicle development</p>
+    <p>📸 Pool testing</p>
+    <p>📸 Team collaboration</p>
+  </section>
 
-nav a {
-  color: var(--text-light);
-  text-decoration: none;
-  font-weight: 600;
-}
+  <section id="join">
+    <h2>Join</h2>
+    <p>
+      All experience levels welcome — mechanical, electrical,
+      software, and controls.
+    </p>
+    <a href="mailto:titanunderwater@csuf.edu" class="button">Email Us</a>
+  </section>
 
-nav a:hover {
-  color: var(--teal-accent);
-}
+</main>
 
-/* CONTENT */
-main {
-  max-width: 1000px;
-  margin: auto;
-  padding: 40px 20px;
-}
+<footer>
+  <p>© 2026 Titan Underwater Robotics • CSUF</p>
+</footer>
 
-section {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 30px;
-  margin-bottom: 40px;
-}
+<!-- SPONSOR LOGOS -->
+<img
+  src="assets/images/oceanbotics.png"
+  alt="Oceanbotics Logo"
+  class="fixed-sponsor ocean"
+  id="oceanSponsor"
+/>
 
-section h2 {
-  color: var(--teal-accent);
-}
+<img
+  src="assets/images/rje-international.png"
+  alt="RJE Logo"
+  class="fixed-sponsor rje"
+  id="rjeSponsor"
+/>
 
-/* BUTTON */
-.button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 20px;
-  background: var(--teal-accent);
-  color: #06202f;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 14px;
-}
+<!-- SCROLL LOGIC -->
+<script>
+  const logo = document.getElementById("teamLogo");
+  const ocean = document.getElementById("oceanSponsor");
+  const rje = document.getElementById("rjeSponsor");
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid var(--border);
-  opacity: 0.8;
-}
+  let floating = false;
 
-/* SPONSORS */
-.fixed-sponsor {
-  position: fixed;
-  bottom: 24px;
-  width: auto;
-  z-index: 1000;
-  transition: transform 0.25s ease-out;
-}
+  function animateLogo(toFloating) {
+    const first = logo.getBoundingClientRect();
 
-.fixed-sponsor.ocean {
-  left: 24px;
-  height: 37px;
-  transform-origin: bottom left;
-}
+    logo.classList.toggle("logo-floating", toFloating);
 
-.fixed-sponsor.rje {
-  right: 0px;
-  bottom: 3px;
-  height: 160px;
-  transform-origin: bottom right;
-}
+    const last = logo.getBoundingClientRect();
 
-.fixed-sponsor.shrink {
-  transform: scale(0.5);
-}
+    const dx = first.left - last.left;
+    const dy = first.top - last.top;
+
+    logo.animate(
+      [
+        {
+          transform: `translate(${dx}px, ${dy}px) scale(${toFloating ? 1 : 0.5})`
+        },
+        {
+          transform: `translate(0, 0) scale(${toFloating ? 0.5 : 1})`
+        }
+      ],
+      {
+        duration: 350,
+        easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+        fill: "both"
+      }
+    );
+  }
+
+  window.addEventListener("scroll", () => {
+    const active = window.scrollY > 60;
+
+    ocean.classList.toggle("shrink", active);
+    rje.classList.toggle("shrink", active);
+
+    if (active && !floating) {
+      floating = true;
+      animateLogo(true);
+    } else if (!active && floating) {
+      floating = false;
+      animateLogo(false);
+    }
+  });
+</script>
+
+</body>
+</html>
