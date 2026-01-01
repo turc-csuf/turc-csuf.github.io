@@ -32,26 +32,23 @@ body {
 
 /* TEAM LOGO */
 .logo-area {
-  will-change: transform;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-area img {
-  height: 110px;
-  width: auto;
-  display: block;
+  height: 120px;
   border: 1px solid white;
   border-radius: 6px;
   padding: 1px;
-  background-color: white;
+  background: white;
 }
 
-/* Floating logo */
+/* LOGO WHEN SCROLLED */
 .logo-area.logo-floating {
   position: fixed;
   top: 12px;
   left: 20px;
-  transform: scale(0.5);
-  transform-origin: top left;
+  transform: scale(0.5); /* EXACT HALF */
   z-index: 1200;
 }
 
@@ -65,16 +62,7 @@ body {
   color: var(--teal-accent);
 }
 
-.title-area p {
-  margin: 0;
-  opacity: 0.85;
-}
-
 /* NAV */
-nav {
-  padding-bottom: 28px;   /* ✅ EXTRA SPACE BELOW NAV */
-}
-
 nav ul {
   display: flex;
   justify-content: center;
@@ -90,10 +78,6 @@ nav a {
   font-weight: 600;
 }
 
-nav a:hover {
-  color: var(--teal-accent);
-}
-
 /* CONTENT */
 main {
   max-width: 1000px;
@@ -102,7 +86,7 @@ main {
 }
 
 section {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 30px;
@@ -133,28 +117,54 @@ footer {
   opacity: 0.8;
 }
 
-/* SPONSORS */
-.fixed-sponsor {
+/* ================= SPONSORS ================= */
+
+/* START POSITION (BOTTOM CENTER) */
+.sponsors-floating {
   position: fixed;
-  bottom: 24px;
-  width: auto;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  align-items: center;
   z-index: 1000;
-  transition: transform 0.25s ease-out;
 }
 
-.fixed-sponsor.ocean {
-  left: 24px;
-  height: 37px;
-  transform-origin: bottom left;
+.sponsors-floating img {
+  height: 90px;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.fixed-sponsor.rje {
-  right: 0px;
-  bottom: 3px;
-  height: 160px;
-  transform-origin: bottom right;
+/* SCROLLED → GO TO CORNERS */
+.sponsors-floating.scrolled #oceanbotics {
+  transform: translate(-420px, 28px) scale(0.5);
 }
 
-.fixed-sponsor.shrink {
-  transform: scale(0.5);
+.sponsors-floating.scrolled #rje {
+  transform: translate(420px, 28px) scale(0.5);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .logo-area img {
+    height: 80px;
+  }
+
+  .logo-area.logo-floating {
+    transform: scale(0.6);
+  }
+
+  .sponsors-floating img {
+    height: 60px;
+  }
+
+  .sponsors-floating.scrolled #oceanbotics {
+    transform: translate(-220px, 20px) scale(0.6);
+  }
+
+  .sponsors-floating.scrolled #rje {
+    transform: translate(220px, 20px) scale(0.6);
+  }
 }
